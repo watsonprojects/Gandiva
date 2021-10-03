@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2020 Subhadeep Jasu <subhajasu@gmail.com> -->
+<component type="desktop">
+  <id>com.github.watsonprojects.gandiva</id>
+  <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>Gandiva</name>
+  <summary>Your person digital companion</summary>
+  <developer_name>Subhadeep Jasu</developer_name>
+  <description>
+    <p>Gandiva is an AI based digital personal companion to help with your needs</p>
+  </description>
+
+  <provides>
+      <binary>com.github.watsonprojects.gandiva</binary>
+  </provides>
+
+  <url type="homepage">https://github.com/watsonprojects/gandiva</url>
+  <url type="help">https://github.com/watsonprojects/gandiva/issues</url>
+  <url type="bugtracker">https://github.com/watsonprojects/gandiva/issues/labels/bug</url>
+
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">none</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">mild</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+
+​  <releases>
+​    <release version="0.0.1" date="2021-04-08">
+​      <description>
+​        <ul>
+            <li>Minor bug fix</li>
+        </ul>
+​      </description>
+​    </release>
+​  </releases>
+
+  <custom>
+    <value key="x-appcenter-color-primary">#D9262C</value>
+    <value key="x-appcenter-color-primary-text">#FFFFFF</value>
+    <value key="x-appcenter-suggested-price">1.99</value>
+  </custom>
+
+</component>
