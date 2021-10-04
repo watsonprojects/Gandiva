@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020 Subhadeep Jasu <subhajasu@gmail.com> -->
 <component type="desktop">
   <id>com.github.watsonprojects.gandiva</id>
   <metadata_license>CC0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Gandiva</name>
-  <summary>Your person digital companion</summary>
+  <summary>AI</summary>
   <developer_name>Subhadeep Jasu</developer_name>
+  <screenshots>
+      <screenshot type="default">
+          <image>https://raw.githubusercontent.com/watsonprojects/gandiva/main/screenshots/screenshot_home.png</image>
+      </screenshot>
+  </screenshots>
   <description>
-    <p>Gandiva is an AI based digital personal companion to help with your needs</p>
+    <p>AI</p>
   </description>
-
   <provides>
       <binary>com.github.watsonprojects.gandiva</binary>
   </provides>
-
-  <url type="homepage">https://github.com/watsonprojects/gandiva</url>
-  <url type="help">https://github.com/watsonprojects/gandiva/issues</url>
-  <url type="bugtracker">https://github.com/watsonprojects/gandiva/issues/labels/bug</url>
-
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>
@@ -48,21 +46,20 @@
     <content_attribute id="money-purchasing">none</content_attribute>
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
-
-​  <releases>
-​    <release version="0.0.1" date="2021-04-08">
-​      <description>
-​        <ul>
-            <li>Minor bug fix</li>
+  <url type="homepage">https://github.com/watsonprojects/gandiva</url>
+  <url type="bugtracker">https://github.com/watsonprojects/gandiva/issues/labels/bug</url>
+  <url type="help">https://github.com/watsonprojects/gandiva/issues/new</url>
+  <releases>
+  <release version="0.0.1" date="2021-08-12">
+      <description>
+        <ul>
+            <li>Initial Release</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
 ​  </releases>
-
   <custom>
-    <value key="x-appcenter-color-primary">#D9262C</value>
-    <value key="x-appcenter-color-primary-text">#FFFFFF</value>
-    <value key="x-appcenter-suggested-price">1.99</value>
+     <value key="x-appcenter-color-primary">#57392D</value>
+     <value key="x-appcenter-color-primary-text">#FFFFFF</value>
   </custom>
-
 </component>

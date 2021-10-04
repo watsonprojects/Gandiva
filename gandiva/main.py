@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 '''
 
 # base imports
-import sys, os
+import sys, os, sysconfig
 
 # gtk imports
 import gi
@@ -22,7 +22,7 @@ from datetime import datetime
 
 # Gandiva imports
 from shell.main_window import MainWindow
-from shell.custom_shortcut_settings import CustomShortcutSettings
+# from shell.custom_shortcut_settings import CustomShortcutSettings
 
 #------------------CLASS-SEPARATOR------------------#
 
@@ -43,18 +43,18 @@ class GandivaApp(Gtk.Application):
         SHORTCUT = "<Super>g"
         ID = "gtk-launch" + " " + self.props.application_id
 
-        _custom_shortcut_settings = CustomShortcutSettings()
+        # _custom_shortcut_settings = CustomShortcutSettings()
 
-        has_shortcut = False
-        for shortcut in _custom_shortcut_settings.list_custom_shortcuts():
-            if shortcut[1] == ID:
-                has_shortcut = True
+        # has_shortcut = False
+        # for shortcut in _custom_shortcut_settings.list_custom_shortcuts():
+        #     if shortcut[1] == ID:
+        #         has_shortcut = True
 
-        if has_shortcut is False:
-            shortcut = _custom_shortcut_settings.create_shortcut()
-            if shortcut is not None:
-                _custom_shortcut_settings.edit_shortcut(shortcut, SHORTCUT)
-                _custom_shortcut_settings.edit_command(shortcut, ID)
+        # if has_shortcut is False:
+        #     shortcut = _custom_shortcut_settings.create_shortcut()
+        #     if shortcut is not None:
+        #         _custom_shortcut_settings.edit_shortcut(shortcut, SHORTCUT)
+        #         _custom_shortcut_settings.edit_command(shortcut, ID)
 
     def do_startup(self):
         Gtk.Application.do_startup(self)
@@ -64,9 +64,15 @@ class GandivaApp(Gtk.Application):
         self.add_action(quit_action)
         self.set_accels_for_action("app.quit", ["<Ctrl>Q", "Escape"])
 
+        # Check Flatpak
+        flatpak_sandbox = os.path.isfile("/.flatpak-info")
         # set CSS provider
         provider = Gtk.CssProvider()
-        provider.load_from_path(os.path.join(os.path.dirname(__file__), "..", "data", "application.css"))
+        if flatpak_sandbox:
+            data_path = "/app/share/com.github.watsonprojects.gandiva/data"
+            provider.load_from_path(os.path.join(data_path, "application.css"))
+        else:
+            provider.load_from_path(os.path.join(os.path.dirname(__file__), "..", "data", "application.css"))
 
         Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 

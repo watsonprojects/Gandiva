@@ -5,8 +5,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 '''
 import os
 import sys
+import sysconfig
 
-prefix = '/usr'
+# Check Flatpak
+flatpak_sandbox = os.path.isfile("/.flatpak-info")
+
+if flatpak_sandbox:
+    prefix = '/app'
+else:
+    prefix = '/usr'
 prefix_data = os.path.join(prefix, 'share')
 
 # Base application info
@@ -19,23 +26,33 @@ launch_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
 # Update sys.path to include modules
 if launch_dir == "/usr/bin":
-    application_path = os.path.join(prefix_data, app_id, 'src')
-    shell_path = os.path.join(prefix_data, app_id, 'src', 'shell')
+    application_path = os.path.join(prefix_data, app_id, 'gandiva')
+    shell_path = os.path.join(prefix_data, app_id, 'gandiva', 'shell')
 else:
-    application_path = os.path.join(launch_dir, 'src')
-    shell_path = os.path.join(launch_dir, 'src', 'shell')
+    if flatpak_sandbox:
+        shell_path = os.path.join(sysconfig.get_paths()["purelib"], 'gandiva', 'shell')
+        shell_path = shell_path.replace ('/usr', '/app')
+        application_path = os.path.join(sysconfig.get_paths()["purelib"], 'gandiva')
+        application_path = application_path.replace ('/usr', '/app')
+    else:
+        shell_path = os.path.join(launch_dir, 'gandiva', 'shell')
+        application_path = os.path.join(launch_dir, 'gandiva')
 
 sys.path.insert(0, application_path, )
 sys.path.insert(0, shell_path, )
 
 try:
-    import application
+    if flatpak_sandbox:
+        import gandiva.main as gandiva
+    else:
+        import gandiva
 except ImportError as e:
     print("Failed to import application!\n" + str(e))
     print("Installation was assumed to be at:\n",
         ">" + application_path + "\n" +
         " >" + shell_path)
+    os.listdir(application_path)
     sys.exit(1)
 
-app = application.GandivaApp()
+app = gandiva.GandivaApp()
 app.run(sys.argv)

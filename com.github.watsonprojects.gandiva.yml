@@ -1,0 +1,19 @@
+app-id: com.github.watsonprojects.gandiva
+runtime: io.elementary.Platform
+runtime-version: '6'
+sdk: io.elementary.Sdk
+command: com.github.watsonprojects.gandiva
+finish-args:
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+  - '--share=network'
+  # needed for perfers-color-scheme
+  - '--system-talk-name=org.freedesktop.Accounts'
+
+modules:
+  - name: gandiva
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .

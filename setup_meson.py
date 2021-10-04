@@ -20,7 +20,13 @@ app_url = 'https://github.com/watsonprojects/' + app_name
 saythanks_url = ''
 
 # Setup file paths for data files
-prefix = '/usr'
+# Check Flatpak
+flatpak_sandbox = os.path.isfile("/.flatpak-info")
+
+if flatpak_sandbox:
+    prefix = '/app'
+else:
+    prefix = '/usr'
 prefix_data = path.join(prefix, 'share')
 install_path = path.join(prefix_data, app_id)
 src_path = path.join(install_path, 'gandiva')
@@ -29,37 +35,15 @@ data_path = path.join(install_path, 'data')
 
 
 # Setup install data list
-install_data = [(prefix_data + '/metainfo', ['data/' + app_id + '.appdata.xml']),
-                (prefix_data + '/applications', ['data/' + app_id + '.desktop']),
-                (prefix_data + '/glib-2.0/schemas',['data/' + app_id + '.gschema.xml']),
-                # (data_path + '/icons',['data/icons/' + app_id + '-symbolic.svg']),
-                # (data_path + '/icons',['data/icons/' + app_id + '-left.svg']),
-                # (data_path + '/icons',['data/icons/' + app_id + '-right.svg']),
-                (data_path,['data/application.css']),
-                (src_path,['gandiva' + '/__init__.py']),
-                (src_path,['gandiva' + '/main.py']),
+install_data = [(data_path, ['data/application.css']),
+                (src_path,  ['gandiva' + '/__init__.py']),
+                (src_path,  ['gandiva' + '/gandiva.py']),
                 (shell_path,['gandiva' + '/shell/__init__.py']),
                 (shell_path,['gandiva' + '/shell/custom_shortcut_settings.py']),
                 (shell_path,['gandiva' + '/shell/display_enclosure.py']),
                 (shell_path,['gandiva' + '/shell/chat_view.py']),
                 (shell_path,['gandiva' + '/shell/main_window.py'])]
-
-# Post install commands
-class PostInstall(install):
-    """Post-installation for installation mode."""
-    def run(self):
-        install.run(self)
-        # PUT YOUR POST-INSTALL SCRIPT HERE or CALL A FUNCTION
-        # print('Updating icon cache...')
-        # call(['gtk-update-icon-cache', '-qtf', path.join(prefix_data, 'icons', 'hicolor')])
-
-        # print("Installing new Schemas")
-        # call(['glib-compile-schemas', path.join(prefix_data, 'glib-2.0/schemas')])
-
-        # print("Clean-up")
-        # import shutil
-        # for size in icon_sizes:
-        #     shutil.rmtree('data/icons/' + size)
+print ("data goes in " + data_path)
 
 setup(
     name=app_name,  # Required
@@ -69,6 +53,7 @@ setup(
     author='Subhadeep Jasu',  # Optional
     author_email='subhajasu@gmail.com',  # Optional
     scripts=[app_id],
+    packages=['gandiva', 'gandiva.shell', 'gandiva.core'],
     data_files=install_data  # Optional
     # cmdclass={
     #     'install': PostInstall,
