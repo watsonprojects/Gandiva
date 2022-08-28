@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Gandiva
+Comment=Digital AI Companion
+GenericName=AI Assistant
+Exec=com.github.watsonprojects.gandiva
+Icon=com.github.watsonprojects.gandiva
+Terminal=false
+Type=Application
+Categories=Utilities;Office;AI;Accessibility;
+Keywords=ai;artificial;intelligence;assistant;personal;speech
