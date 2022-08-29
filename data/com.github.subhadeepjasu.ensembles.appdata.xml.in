@@ -30,8 +30,8 @@
     <value key="x-appcenter-suggested-price">0</value>
   </custom>
   <translation type="gettext">com.github.watsonprojects.gandiva</translation>
-  <developer_name>Subhadeep Jasu</developer_name>
-  <url type="homepage">https://watsonprojects.github.io/#/project/gandiva</url>
+  <developer_name>Watson Projects</developer_name>
+  <url type="homepage">https://subhadeepjasu.github.io/#/project/gandiva</url>
   <url type="bugtracker">https://github.com/watsonprojects/gandiva/issues</url>
   <url type="help">https://github.com/watsonprojects/gandiva/issues</url>
   <update_contact>subhajasu@gmail.com</update_contact>
