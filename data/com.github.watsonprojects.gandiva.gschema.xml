@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <schemalist>
-  <schema path="/com/github/subhadeepjasu/gandiva/" id="com.github.watsonprojects.gandiva">
+  <schema path="/com/github/watsonprojects/gandiva/" id="com.github.watsonprojects.gandiva">
     <key name="prefer-dark-style" type="b">
       <default>true</default>
       <summary>If the dark Gtk stylesheet should be used</summary>

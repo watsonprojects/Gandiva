@@ -4,7 +4,7 @@ project(
   meson_version: '>= 0.50.0'
 )
 
-organization = 'subhadeepjasu'
+organization = 'watsonprojects'
 domain = 'com.github'
 gitrepo = 'https://github.com/' + organization + '/' + meson.project_name()
 website = gitrepo
