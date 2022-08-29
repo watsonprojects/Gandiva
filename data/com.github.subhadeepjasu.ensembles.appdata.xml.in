@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2021-2022 Subhadeep Jasu <subhajasu@gmail.com> -->
+<component type="desktop-application">
+  <id>com.github.watsonprojects.gandiva</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>gandiva</name>
+  <summary>Virtual AI Companion</summary>
+  <description>
+    <p>Gandiva is the codename for an opensource virtual assistant program for Linux based operating systems.
+    It's a voice activated accessibility tool, which is designed to simply general computing operations.
+    It's built using python and Gtk.</p>
+    <p>Features:</p>
+    <ul>
+      <li>Easy and fast file system search</li>
+      <li>Easy and fast app search and launch apps and actions from within the app</li>
+      <li>Talk to the program directly using voice</li>
+      <li>Summon the program by calling "Hey Gandiva!"</li>
+      <li>Ask questions about your computer (only Gnome and Pantheon desktops supported) [Not yet available]</li>
+      <li>Ask trivia questions</li>
+      <li>Control your PC using voice (only Gnome and Pantheon desktops supported) [Not yet available]</li>
+      <li>Have basic conversation with the program [Partially available]</li>
+      <li>Communicate with other apps via DBUS [Not yet available]</li>
+      <li>A mandatory weather skill</li>
+    </ul>
+  </description>
+  <custom>
+    <value key="x-appcenter-color-primary">#CD5F20</value>
+    <value key="x-appcenter-color-primary-text">#FFFFFF</value>
+    <value key="x-appcenter-suggested-price">0</value>
+  </custom>
+  <translation type="gettext">com.github.watsonprojects.gandiva</translation>
+  <developer_name>Watson Projects</developer_name>
+  <url type="homepage">https://subhadeepjasu.github.io/#/project/gandiva</url>
+  <url type="bugtracker">https://github.com/watsonprojects/gandiva/issues</url>
+  <url type="help">https://github.com/watsonprojects/gandiva/issues</url>
+  <update_contact>subhajasu@gmail.com</update_contact>
+  <launchable type="desktop-id">com.github.watsonprojects.gandiva.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Screenshot</caption>
+      <image>https://raw.githubusercontent.com/watsonprojects/Gandiva/master/screenshots/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">mild</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">mild</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+</component>

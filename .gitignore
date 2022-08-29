@@ -1,4 +1,3 @@
-.flatpak-builder/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -10,7 +9,8 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
-prefix/
+_build/
+builddir/
 develop-eggs/
 dist/
 downloads/
@@ -28,7 +28,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-files.txt
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -131,5 +130,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-reference.png
-data/application.css~
+#Flatpak
+.flatpak-builder/
+
+# Vs Code
+.vscode/

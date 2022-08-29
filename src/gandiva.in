@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2022 Subhadeep Jasu <subhajasu@gmail.com>
+
+"""
+This is the main python executable file of this app
+This usually goes in the "bin" folder of the OS and
+requires execute permissions for the user
+"""
+
+# Base imports
+import os
+import sys
+
+APP_ID = '@app_id@'
+PACKAGE_DIR = '@pkgdatadir@'
+VERSION = '@version_string@'
+
+# Base application info
+RDNN = APP_ID.split('.')
+APP_NAME = RDNN[3]
+
+application_path = os.path.join(PACKAGE_DIR, APP_NAME)
+shell_path = os.path.join(PACKAGE_DIR, APP_NAME, 'shell')
+core_path = os.path.join(PACKAGE_DIR, APP_NAME, 'core')
+util_path = os.path.join(PACKAGE_DIR, APP_NAME, 'utils')
+
+sys.path.insert(0, PACKAGE_DIR)
+sys.path.insert(1, util_path)
+sys.path.insert(1, application_path)
+sys.path.insert(1, shell_path)
+sys.path.insert(1, core_path)
+
+if __name__ == '__main__':
+  from gandiva import main
+  print(APP_NAME.title(), VERSION)
+  sys.exit(main.main(VERSION, APP_ID, PACKAGE_DIR))

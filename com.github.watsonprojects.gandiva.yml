@@ -1,17 +1,118 @@
 app-id: com.github.watsonprojects.gandiva
 runtime: io.elementary.Platform
-runtime-version: '6'
+runtime-version: '7'
 sdk: io.elementary.Sdk
 command: com.github.watsonprojects.gandiva
 finish-args:
-  - '--share=ipc'
-  - '--socket=fallback-x11'
-  - '--socket=wayland'
-  - '--share=network'
+  - --share=network
+  - --socket=pulseaudio
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --filesystem=home
+  - --device=all
   # needed for perfers-color-scheme
   - '--system-talk-name=org.freedesktop.Accounts'
 
 modules:
+  - name: pcaudiolib
+    buildsystem: autotools
+    sources:
+      - type: git
+        url: https://github.com/espeak-ng/pcaudiolib.git
+
+    # this is the version that builds with flatpak
+  - name: espeak-ng
+    buildsystem: simple
+    build-commands:
+      - "./autogen.sh"
+      - "CC=gcc CFLAGS=-Wextra ./configure --prefix=${FLATPAK_DEST}"
+      - "make"
+      - "make install"
+    sources:
+      - type: git
+        url: https://github.com/espeak-ng/espeak-ng.git
+
+  - name: wheel
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} wheel"
+
+  - name: PyGObject
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} PyGObject"
+
+  - name: pyenchant
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} pyenchant"
+
+  - name: pyalsaaudio
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} pyalsaaudio"
+
+  - name: vosk
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} vosk"
+
+  - name: numpy
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} numpy"
+
+  - name: nltk
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} nltk"
+
+  - name: pillow
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} Pillow"
+
+  - name: py-espeak-ng
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} py-espeak-ng"
+
+  - name: geocoder
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - "pip3 install --prefix=${FLATPAK_DEST} geocoder"
+
   - name: gandiva
     buildsystem: meson
     sources:
