@@ -136,12 +136,12 @@ For the app to work, it needs skill plugins which are loaded dynamically from th
 
 Skills and the ones that come out of box are going to be further discussed in details below.
 
+<br>
 
-<br>
 <sup>**Successor to**: [Hemera](https://github.com/SubhadeepJasu/hemera) by Subhadeep Jasu. Hemera is a shell for [Mycroft AI](https://mycroft.ai), but Gandiva has it's own AI core</sup>
-<br>
+
 <sup>Special thanks to Hannes Schulze for designing and programming Hemera, some of which has been ported to Gandiva now.</sup>
-<br>
+
 <sup>**License**: GNU GPLv3</sup>
-<br>
+
 <sup>© Copyright 2021-2022 Subhadeep Jasu</sup>
