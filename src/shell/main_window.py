@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2022 Subhadeep Jasu <subhajasu@gmail.com>
+# SPDX-FileCopyrightText: 2019 Hannes Schulze <haschu0103@gmail.com>
 
 #pylint: disable=unused-argument
 
